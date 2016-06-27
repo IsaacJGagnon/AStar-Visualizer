@@ -1,3 +1,14 @@
+/**********************************
+ * Created by Isaac Gagnon 6/11/2016
+ * 
+ * Builds an input map for the AStar program. Takes in a number of rows,
+ * and columns, a percentage of blocked spaces, and a file name. Then it
+ * builds the map and outputs it to the given file in a text file
+ * format. 
+ * 
+ * Last updated 6/18/2016
+ **********************************/
+
 import java.io.File;
 import java.io.Writer;
 import java.io.BufferedWriter;
@@ -10,7 +21,7 @@ public class MapGen{
 	public static void main(String[] args){
 		if(args.length != 4){
             System.err.println("Wrong Number of arguments");
-            System.err.println("java main [rows] [cols] [blocked] [fname]");
+            System.err.println("java MapGen [rows] [cols] [blocked] [fname]");
             System.exit(-1);
         }
         
