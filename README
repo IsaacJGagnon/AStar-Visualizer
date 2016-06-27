@@ -1,0 +1,89 @@
+AStar visualizer and MapGen
+
+created by: Isaac Gagnon
+
+NOTE: These programs currently can only be run from the terminal
+
+This is a simple program that visualizes the A* path planning algorithm.
+There are two seperate programs in this repository that work together.
+The first is a map generator that consists of:
+
+> MapGen.java
+
+The second is the actual A* visualizer which consists of:
+
+> AStar.java
+> Node.java
+> Visualizer.java
+> Tile.java
+
+***********************************************
+					MapGen
+***********************************************
+
+To run the map generator give input in the form:
+
+java MapGen [rows(int)] [cols(int)] [blocked(double from 1 to 0)] [fname(String)]
+
+Where the file name given does not contain an extension as .txt will be
+appended.
+
+It then generates an occupancy grid/map of _,#,*, and @. Where @ is a
+randomly generated starting position, and * is a randomly generated
+goal.
+
+For example, running the MapGen with an input like this:
+
+java MapGen 10 10 0.32 test
+
+Might generate a map like this:
+
+10
+10
+___####__#
+_##__#_###
+____##__##
+___#__#_##
+____#___#_
+##____#___
+_#__*#_##@
+__##____#_
+__##____#_
+##____##__
+
+The first two lines are rows followed by columns.
+
+Futre updates:
+1.) There are currently few error checks and it will not handle invalid
+input well. More specifically the file names have no check.
+2.) This version doesn't handle creating maps with multiple goals even
+though the A* visualizer can handle multiple goals
+
+***********************************************
+					AStar
+***********************************************
+
+Running AStar is just as simple once a map has been generated.
+It takes input in the form:
+
+java AStar [heuristic(int)] < [fname(String)]
+
+Where [heuristic(int)] is an integer from 0 to 2 representing which
+heuristic to run. 
+
+0: runs Dijkstra's algorithm
+1: uses Euclidean distance
+2: uses Octile distance 
+
+It reads in the file and builds a map out of it. Saving the start, and 
+counting and saving the goals. Then it runs the A* algorithm, or
+Dijkstra's algorithm if 0 is given.
+
+Future update:
+1.) There are currently no error checks, and any bad input will result
+in the program breaking. As such, all files must be given in the format
+above.
+
+
+
+
